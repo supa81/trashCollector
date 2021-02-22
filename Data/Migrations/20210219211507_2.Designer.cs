@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TrashCollector.Data;
 
 namespace TrashCollector.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210219211507_2")]
+    partial class _2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,15 +50,22 @@ namespace TrashCollector.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "283b86ff-e246-49e8-a1c5-655125f1ce19",
-                            ConcurrencyStamp = "597dbb3c-f4de-41b5-a41b-8476e53e5eb5",
+                            Id = "20f2c9e1-56ca-42ed-8de4-bbffc106ba4a",
+                            ConcurrencyStamp = "2a90dcd8-5397-465d-ab81-bec63f019c53",
+                            Name = "Admin",
+                            NormalizedName = "ADMIN"
+                        },
+                        new
+                        {
+                            Id = "32183bf2-2ce9-47f8-a31e-70fec8442718",
+                            ConcurrencyStamp = "60a3e537-8583-4c4a-8756-d3a1b5a7c792",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "ae418fea-d505-4ccd-a5f4-b71f9a1d0325",
-                            ConcurrencyStamp = "ff07bf41-4d55-42df-adf9-74629dc4ad9c",
+                            Id = "a86f0784-f52f-4a43-8157-174a5134ab66",
+                            ConcurrencyStamp = "6b97201b-38fc-458e-a0c4-63d16ee3fc00",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -238,14 +247,11 @@ namespace TrashCollector.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("EndDayOfService")
+                        .HasColumnType("int");
 
-                    b.Property<string>("EndDayOfService")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("ExtraOneTimePickUp")
-                        .HasColumnType("bit");
+                    b.Property<int>("ExtraOneTimePickUp")
+                        .HasColumnType("int");
 
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
@@ -256,8 +262,8 @@ namespace TrashCollector.Data.Migrations
                     b.Property<int>("PickUpTime")
                         .HasColumnType("int");
 
-                    b.Property<string>("StartDayOfService")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("StartDayOfService")
+                        .HasColumnType("int");
 
                     b.Property<string>("WeeklyPickUpDay")
                         .HasColumnType("nvarchar(max)");
@@ -279,14 +285,11 @@ namespace TrashCollector.Data.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<bool>("CompletedPickUp")
-                        .HasColumnType("bit");
-
                     b.Property<int>("EndDayOfService")
                         .HasColumnType("int");
 
-                    b.Property<bool>("ExtraOneTimePickUp")
-                        .HasColumnType("bit");
+                    b.Property<int>("ExtraOneTimePickUp")
+                        .HasColumnType("int");
 
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");

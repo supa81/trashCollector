@@ -10,16 +10,17 @@ namespace TrashCollector.Models
     public class Pickups
     {
         [Key]
-        public int Id { get; set; }
-        [DisplayName("")]
-        public string SuperHeroName { get; set; }
-        [DisplayName("Super Hero Alter Ego ")]
-        public string SuperHeroAlterEgo { get; set; }
-        [DisplayName("Primary Abilities")]
-        public string Primarysuperheroability { get; set; }
-        [DisplayName("Secondary Abilities")]
-        public string Secondarysuperheroability { get; set; }
-        [DisplayName("Catch Phrase")]
-        public string CatchPhrase { get; set; }
+        [DisplayName("Address")]
+        public int Address { get; set; }
+        [DisplayName("ZipCode")]
+        public string Zipcode { get; set; }
+        [DisplayName("Customer")]
+        public string Customer { get; set; }
+        [DisplayName("Employee Who Collected Trash")]
+        public string EmployeeWhoPickedUp{ get; set; }
+        [DisplayName("Day Trash was Collected")]
+        public int Daypickedup { get; set; }
+        [DisplayName("Trash Collection Time")]
+        public string PickUpTime { get; set; }
     }
 }
