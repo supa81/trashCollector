@@ -20,17 +20,21 @@ namespace TrashCollector.Models
         [DisplayName("Zipcode")]
         public int ZipCode { get; set; }
         [DisplayName("Weekly Pick Up Day")]
-        public string WeeklyPickUpDay { get; set; }
+        public DateTime WeeklyPickUpDay { get; set; }
         [DisplayName("Pick Up Time")]
-        public int PickUpTime { get; set; }
-        [DisplayName("Start day of service")]
-        public int StartDayOfService { get; set; }
-        [DisplayName("End day of service")]
-        public int EndDayOfService { get; set; }
-        [DisplayName("Extra One Time Pick up")]
-        public bool ExtraOneTimePickUp { get; set; }
+        public DateTime PickUpTime { get; set; }
+        [DisplayName("Completed Pick Up")]
+        public DateTime CompletedPickUp { get; set; }
+
+
+
+        public DateTime ExtraOneTimePickUp { get; set; }
         [DisplayName("Completed pick up")]
-        public bool CompletedPickUp { get; set; }
+        public bool ExtraOneTimePickUpCompletedPickUp { get; set; }
+        
+	
+
+	
 
 
 

@@ -11,7 +11,8 @@ namespace TrashCollector.Models
 {
     public class Customer
     {
-        DateTime date = new DateTime(2002, 10, 22);
+       
+        
        
 
         [Key]
@@ -24,19 +25,16 @@ namespace TrashCollector.Models
         [DisplayName("ZipCode")]
         public string ZipCode { get; set; }
         [DisplayName("Weekly Trash collection Day")]
-        public string WeeklyPickUpDay { get; set; }
-        [DisplayName("Trash collection Pick Up ex. 2/22/2021 ")]
-        public int PickUpTime { get; set; }
-        [DisplayName("Start day of service")]
-        public string StartDayOfService { get; set; }
+        public DateTime WeeklyPickUpDay { get; set; }
+        [DisplayName("Trash collection Pick Up ")]
+        
+        public DateTime StartDayOfService { get; set; }
         [DisplayName("End day of service")]
-        public string EndDayOfService { get; set; }
+        public DateTime EndDayOfService { get; set; }
         [DisplayName("Extra One Time Trash Collection")]
-        public bool ExtraOneTimePickUp { get; set; }
-        public int Date { get; set; }
+        public DateTime ExtraOneTimePickUp { get; set; }
 
-
-
+        
 
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }

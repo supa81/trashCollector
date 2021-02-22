@@ -34,16 +34,8 @@
                 <input asp-for="PickUpTime" class="form-control" />
                 <span asp-validation-for="PickUpTime" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="StartDayOfService" class="control-label"></label>
-                <input asp-for="StartDayOfService" class="form-control" />
-                <span asp-validation-for="StartDayOfService" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="EndDayOfService" class="control-label"></label>
-                <input asp-for="EndDayOfService" class="form-control" />
-                <span asp-validation-for="EndDayOfService" class="text-danger"></span>
-            </div>
+            
+            
             <div class="form-group form-check">
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="ExtraOneTimePickUp" /> @Html.DisplayNameFor(model => model.ExtraOneTimePickUp)
