@@ -48,15 +48,15 @@ namespace TrashCollector.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "c986b4f4-f755-4271-b5be-ddf841c49dee",
-                            ConcurrencyStamp = "e2365d76-4289-4cff-ab37-a6b9c44f4fc8",
+                            Id = "ed84bea2-dc47-4ce1-bc87-ab5f6b44f049",
+                            ConcurrencyStamp = "1fc21bbb-5438-4f2e-a3e2-e6cd8dc2cdaa",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "d4f5e37b-b3f5-453c-9c1a-a8c133ae424c",
-                            ConcurrencyStamp = "7125ae6d-b8f4-4871-a75a-fcd5f4f0a164",
+                            Id = "9527f99b-05d3-456e-9af1-a39504e37dca",
+                            ConcurrencyStamp = "f8b84579-0404-4e97-ba61-99c854a9954f",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -247,6 +247,9 @@ namespace TrashCollector.Migrations
                     b.Property<DateTime>("ExtraOneTimePickUp")
                         .HasColumnType("datetime2");
 
+                    b.Property<bool>("ExtraOneTimePickUpButton")
+                        .HasColumnType("bit");
+
                     b.Property<string>("IdentityUserId")
                         .HasColumnType("nvarchar(450)");
 
@@ -256,11 +259,11 @@ namespace TrashCollector.Migrations
                     b.Property<DateTime>("StartDayOfService")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("WeeklyPickUpDay")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ZipCode")
+                    b.Property<string>("WeeklyPickUpDay")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ZipCode")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -294,8 +297,8 @@ namespace TrashCollector.Migrations
                     b.Property<DateTime>("PickUpTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("WeeklyPickUpDay")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("WeeklyPickUpDay")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");

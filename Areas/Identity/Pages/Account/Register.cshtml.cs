@@ -45,7 +45,6 @@ namespace TrashCollector.Areas.Identity.Pages.Account
         public InputModel Input { get; set; }
         public SelectList Roles { get; set; }
 
-
         public string ReturnUrl { get; set; }
 
         public IList<AuthenticationScheme> ExternalLogins { get; set; }
