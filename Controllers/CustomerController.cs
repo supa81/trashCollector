@@ -56,7 +56,7 @@ namespace TrashCollector.Controllers
         public ActionResult Create()
         {
             ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            return RedirectToAction(nameof(Index));
         }
         // POST: CustomerController/Create
         [HttpPost]

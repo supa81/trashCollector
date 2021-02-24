@@ -26,7 +26,7 @@ namespace TrashCollector.Models
 
 
         [DisplayName("Weekly Pick Up Day")]
-        public string WeeklyPickUpDay { get; set; }
+        public DateTime WeeklyPickUpDay { get; set; }
 
         
         [DisplayName("Completed Pick Up")]

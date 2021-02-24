@@ -161,11 +161,12 @@ namespace TrashCollector.Migrations
                     Address = table.Column<string>(nullable: true),
                     Name = table.Column<string>(nullable: true),
                     ZipCode = table.Column<int>(nullable: false),
-                    WeeklyPickUpDay = table.Column<string>(nullable: true),
+                    WeeklyPickUpDay = table.Column<DateTime>(nullable: false),
                     StartDayOfService = table.Column<DateTime>(nullable: false),
                     EndDayOfService = table.Column<DateTime>(nullable: false),
                     ExtraOneTimePickUpButton = table.Column<bool>(nullable: false),
                     ExtraOneTimePickUp = table.Column<DateTime>(nullable: false),
+                    Balance = table.Column<decimal>(nullable: false),
                     IdentityUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -187,11 +188,9 @@ namespace TrashCollector.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(nullable: true),
                     ZipCode = table.Column<int>(nullable: false),
-                    WeeklyPickUpDay = table.Column<string>(nullable: true),
-                    PickUpTime = table.Column<DateTime>(nullable: false),
-                    CompletedPickUp = table.Column<DateTime>(nullable: false),
-                    ExtraOneTimePickUp = table.Column<DateTime>(nullable: false),
-                    ExtraOneTimePickUpCompletedPickUp = table.Column<bool>(nullable: false),
+                    WeeklyPickUpDay = table.Column<DateTime>(nullable: false),
+                    CompletedPickUp = table.Column<bool>(nullable: false),
+                    Balance = table.Column<decimal>(nullable: false),
                     IdentityUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -208,12 +207,12 @@ namespace TrashCollector.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "ed84bea2-dc47-4ce1-bc87-ab5f6b44f049", "1fc21bbb-5438-4f2e-a3e2-e6cd8dc2cdaa", "Employee", "EMPLOYEE" });
+                values: new object[] { "834c675d-09cb-4451-ae97-5565bb319016", "3b0e4264-52fd-4012-b14f-652d6c1bc24b", "Employee", "EMPLOYEE" });
 
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "9527f99b-05d3-456e-9af1-a39504e37dca", "f8b84579-0404-4e97-ba61-99c854a9954f", "Customer", "CUSTOMER" });
+                values: new object[] { "168ac687-a2ad-4a71-8287-698591205e9c", "6439320e-b297-4778-882a-756f5c5a2521", "Customer", "CUSTOMER" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

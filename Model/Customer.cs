@@ -29,11 +29,11 @@ namespace TrashCollector.Models
         public int ZipCode { get; set; }
 
 
-        [DisplayName("Weekly Trash collection Day")]
-        public string WeeklyPickUpDay { get; set; }
+        [DisplayName("Weekly Trash PickUp Day")]
+        public DateTime WeeklyPickUpDay { get; set; }
 
 
-        [DisplayName("Trash collection Pick Up ")]
+        [DisplayName("Start Day Of Service ")]
         public DateTime StartDayOfService { get; set; }
 
 
@@ -43,6 +43,8 @@ namespace TrashCollector.Models
 
         [DisplayName("Extra pick up?")]
         public bool ExtraOneTimePickUpButton { get; set; }
+
+        
 
 
         [DisplayName("Extra One Time Trash Collection")]

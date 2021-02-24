@@ -10,7 +10,7 @@ using TrashCollector.Data;
 namespace TrashCollector.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210224170417_1")]
+    [Migration("20210224201054_1")]
     partial class _1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -50,15 +50,15 @@ namespace TrashCollector.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ed84bea2-dc47-4ce1-bc87-ab5f6b44f049",
-                            ConcurrencyStamp = "1fc21bbb-5438-4f2e-a3e2-e6cd8dc2cdaa",
+                            Id = "834c675d-09cb-4451-ae97-5565bb319016",
+                            ConcurrencyStamp = "3b0e4264-52fd-4012-b14f-652d6c1bc24b",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "9527f99b-05d3-456e-9af1-a39504e37dca",
-                            ConcurrencyStamp = "f8b84579-0404-4e97-ba61-99c854a9954f",
+                            Id = "168ac687-a2ad-4a71-8287-698591205e9c",
+                            ConcurrencyStamp = "6439320e-b297-4778-882a-756f5c5a2521",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -243,6 +243,9 @@ namespace TrashCollector.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<DateTime>("EndDayOfService")
                         .HasColumnType("datetime2");
 
@@ -261,8 +264,8 @@ namespace TrashCollector.Migrations
                     b.Property<DateTime>("StartDayOfService")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("WeeklyPickUpDay")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("WeeklyPickUpDay")
+                        .HasColumnType("datetime2");
 
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
@@ -281,13 +284,10 @@ namespace TrashCollector.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CompletedPickUp")
-                        .HasColumnType("datetime2");
+                    b.Property<decimal>("Balance")
+                        .HasColumnType("decimal(18,2)");
 
-                    b.Property<DateTime>("ExtraOneTimePickUp")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("ExtraOneTimePickUpCompletedPickUp")
+                    b.Property<bool>("CompletedPickUp")
                         .HasColumnType("bit");
 
                     b.Property<string>("IdentityUserId")
@@ -296,11 +296,8 @@ namespace TrashCollector.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("PickUpTime")
+                    b.Property<DateTime>("WeeklyPickUpDay")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("WeeklyPickUpDay")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");

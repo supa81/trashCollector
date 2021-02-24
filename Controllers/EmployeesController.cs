@@ -35,8 +35,9 @@ namespace TrashCollector.Controllers
                return RedirectToAction("Create");
             }
             var customers = _context.Customer.Where(c => c.ZipCode == employee.ZipCode).ToList();
-            customers = _context.Customer.Where(c => c.WeeklyPickUpDay == employee.WeeklyPickUpDay).ToList();
-            return View(customers);
+            customers = _context.Customer.Where(c => c.WeeklyPickUpDay.DayOfWeek.ToString() == employee.WeeklyPickUpDay.DayOfWeek.ToString()).ToList();
+            return View(customers); 
+          
         }
 
         // GET: Employees/Details/5
