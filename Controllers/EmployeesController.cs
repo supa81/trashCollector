@@ -27,7 +27,6 @@ namespace TrashCollector.Controllers
         public ActionResult Index()
         {
            
-            var applicationDbContext = _context.Employee.Include(e => e.IdentityUser);
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
             var employee = _context.Employee.Where(e => e.IdentityUserId == userId).SingleOrDefault();
             if (employee == null)
@@ -73,23 +72,22 @@ namespace TrashCollector.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind("Id,Name,ZipCode,WeeklyPickUpDay,PickUpTime,StartDayOfService,EndDayOfService,ExtraOneTimePickUp,CompletedPickUp,IdentityUserId")] Employee employee)
         {
-            try
-            {
+          
+            
                 if (ModelState.IsValid)
                 {
+                    var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                     employee.IdentityUserId = userId;
                     _context.Add(employee);
-                    
                     _context.SaveChanges();
-                    return RedirectToAction(nameof(Index));
+                    return RedirectToAction("Index");
                 }
                 ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", employee.IdentityUserId);
                 return View(employee);
-            } 
-            catch
-            {
+           
 
-                return View();
-            }
+               
+            
      
         }
         
@@ -115,7 +113,7 @@ namespace TrashCollector.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, [Bind("Id,Name,ZipCode,WeeklyPickUpDay,PickUpTime,StartDayOfService,EndDayOfService,ExtraOneTimePickUp,CompletedPickUp,IdentityUserId")] Employee employee)
+        public ActionResult Edit(int id, [Bind("Id,Name,ZipCode,WeeklyPickUpDay,CompletedPickUp,Balance")] Employee employee)
         {
             if (id != employee.Id)
             {
@@ -188,5 +186,23 @@ namespace TrashCollector.Controllers
         {
             return _context.Employee.Any(e => e.Id == id);
         }
+
+        // create a button for each pickup in the index view that triggers an action "PickupComplete"
+        // write an action (method) that sets our bool on the customer equal to "true" 
+        public ActionResult PickUpComplete(Customer customer)
+        {
+            if (customer.ExtraOneTimePickUpButton == true)
+            {
+                customer = _context.Customer.Find(customer);
+                _context.Customer.Remove(customer);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+               
+            }
+            return View();
+        }
+        
+        // Now, when you filter by customers with pickups, if their complete = TRUE, don't list
     }
+
 }

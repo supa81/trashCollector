@@ -56,24 +56,24 @@ namespace TrashCollector.Controllers
         public ActionResult Create()
         {
             ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id");
-            return RedirectToAction(nameof(Index));
+            return View();
         }
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("Id,Name,Address,ZipCode,WeeklyPickUpDay,StartDayOfService,EndDayOfService")] Customer customer)
+        public ActionResult Create([Bind("Id,Name,Address,ZipCode,WeeklyPickUpDay,StartDayOfService,EndDayOfService,ExtraOneTimePickUpButton,ExtraOneTimePickUp,Balance ")] Customer customer)
         {
-            
-            
-                if (ModelState.IsValid)
-                {
-                    var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    customer.IdentityUserId = userId;
-                    _context.Customer.Add(customer);
-                   return RedirectToAction(nameof(Index));
+            if (ModelState.IsValid)
+            {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                customer.IdentityUserId = userId;
+                _context.Customer.Add(customer);
+                _context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
 
-                }
-                  return View(customer);
+            return View();
+
         }
         // GET: CustomerController/Edit/5
         public ActionResult Edit(int? id)

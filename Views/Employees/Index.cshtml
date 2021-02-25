@@ -10,6 +10,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+
 <table class="table">
     <thead>
         <tr>
@@ -31,7 +32,9 @@
             <th></th>
         </tr>
     </thead>
+
     <tbody>
+
 @foreach (var item in Model) {
         <tr>
             <td>
@@ -45,10 +48,14 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompletedPickUp)
+                <div class="form-group">
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                </div>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IdentityUser.Id)
             </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
