@@ -4,6 +4,8 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Amazon.DynamoDBv2;
+using DocumentFormat.OpenXml;
+using DocumentFormat.OpenXml.Office.CustomUI;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -34,8 +36,8 @@ namespace TrashCollector.Controllers
                return RedirectToAction("Create");
             }
             var customers = _context.Customer.Where(c => c.ZipCode == employee.ZipCode).ToList();
-            customers = _context.Customer.Where(c => c.WeeklyPickUpDay.DayOfWeek.ToString() == employee.WeeklyPickUpDay.DayOfWeek.ToString()).ToList();
-            return View(customers); 
+            var filiteredCustomers = customers.Where(c => c.WeeklyPickUpDay.DayOfWeek.ToString() == employee.WeeklyPickUpDay.DayOfWeek.ToString()).ToList();
+            return View(filiteredCustomers); 
           
         }
 
@@ -54,7 +56,6 @@ namespace TrashCollector.Controllers
             {
                 return NotFound();
             }
-
             return View(employee);
         }
 
@@ -84,11 +85,6 @@ namespace TrashCollector.Controllers
                 }
                 ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", employee.IdentityUserId);
                 return View(employee);
-           
-
-               
-            
-     
         }
         
         // GET: Employees/Edit/5
@@ -188,6 +184,7 @@ namespace TrashCollector.Controllers
         }
 
         // create a button for each pickup in the index view that triggers an action "PickupComplete"
+
         // write an action (method) that sets our bool on the customer equal to "true" 
         public ActionResult PickUpComplete(Customer customer)
         {

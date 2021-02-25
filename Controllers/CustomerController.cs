@@ -86,8 +86,8 @@ namespace TrashCollector.Controllers
 
             if (customer == null)
             {
-                RedirectToAction("Create");
-                //return NotFound();
+               
+                return NotFound();
             }
             ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", customer.IdentityUserId);
             return View(customer);
