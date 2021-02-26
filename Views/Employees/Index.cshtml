@@ -3,9 +3,37 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var dayList = new SelectList(
+       new List<SelectListItem>
+       {
+            new SelectListItem{Text = "Sunday", Value = "Sunday"},
+            new SelectListItem{Text = "Monday", Value = "Monday"},
+             new SelectListItem{Text = "Tuesday", Value = "Tuesday"},
+              new SelectListItem{Text = "Wednesday", Value = "Wednesday"},
+               new SelectListItem{Text = "Thursday", Value = "Thursday"},
+                new SelectListItem{Text = "Friday", Value = "Friday"},
+                 new SelectListItem{Text = "Saturday", Value = "Saturday"},
+       }, "Value", "Text");
 }
 
 <h1>Index</h1>
+
+<form asp-action="Index">
+    <div class="form-group">
+        <label class="control-label"></label>
+        <select class="form-control" asp-items="dayList"></select>
+        <span>class="text-danger" "dayList"</span>
+
+    </div>
+
+
+    <div class="form-group">
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </div>
+
+
+</form>
+
 
 <p>
     <a asp-action="Create">Create New</a>

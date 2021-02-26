@@ -48,15 +48,15 @@ namespace TrashCollector.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "2b9ea381-a7d2-488e-939e-66ff64fd805e",
-                            ConcurrencyStamp = "b96a74e4-2644-4070-9084-2645a0c062c4",
+                            Id = "d6699eb5-5073-4ce6-9dc0-690545917441",
+                            ConcurrencyStamp = "3a94fd2f-30d7-49b4-a7a5-f13bf84e8a86",
                             Name = "Employee",
                             NormalizedName = "EMPLOYEE"
                         },
                         new
                         {
-                            Id = "33c06e2a-fdca-4bee-b1c9-c8f765ed4b61",
-                            ConcurrencyStamp = "e03c88e4-3ede-42fa-90a9-ab64c3775bd0",
+                            Id = "4c25c397-9ee6-4d6c-a514-f4186725bb49",
+                            ConcurrencyStamp = "4e80a545-b220-4abb-8938-e1e7787a7752",
                             Name = "Customer",
                             NormalizedName = "CUSTOMER"
                         });
@@ -244,6 +244,9 @@ namespace TrashCollector.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<bool>("CompletedPickUp")
+                        .HasColumnType("bit");
+
                     b.Property<DateTime>("EndDayOfService")
                         .HasColumnType("datetime2");
 
@@ -262,8 +265,8 @@ namespace TrashCollector.Migrations
                     b.Property<DateTime>("StartDayOfService")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("WeeklyPickUpDay")
-                        .HasColumnType("datetime2");
+                    b.Property<string>("WeeklyPickUpDay")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");
@@ -293,9 +296,6 @@ namespace TrashCollector.Migrations
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("WeeklyPickUpDay")
-                        .HasColumnType("datetime2");
 
                     b.Property<int>("ZipCode")
                         .HasColumnType("int");

@@ -25,9 +25,6 @@ namespace TrashCollector.Models
         public int ZipCode { get; set; }
 
 
-        [DisplayName("Weekly Pick Up Day")]
-        public DateTime WeeklyPickUpDay { get; set; }
-
         
         [DisplayName("Completed Pick Up")]
         public bool CompletedPickUp { get; set; }

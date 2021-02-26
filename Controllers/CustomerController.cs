@@ -61,7 +61,7 @@ namespace TrashCollector.Controllers
         // POST: CustomerController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind("Id,Name,Address,ZipCode,WeeklyPickUpDay,StartDayOfService,EndDayOfService,ExtraOneTimePickUpButton,ExtraOneTimePickUp,Balance ")] Customer customer)
+        public ActionResult Create([Bind("Id,Name,Address,ZipCode,WeeklyPickUpDay,StartDayOfService,EndDayOfService,ExtraOneTimePickUpButton,ExtraOneTimePickUp,CompletedPickUp,Balance ")] Customer customer)
         {
             if (ModelState.IsValid)
             {

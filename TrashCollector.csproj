@@ -7,9 +7,13 @@
 
   <ItemGroup>
     <Compile Remove="Controllers\NewFolder\**" />
+    <Compile Remove="wwwroot\js\NewFolder\**" />
     <Content Remove="Controllers\NewFolder\**" />
+    <Content Remove="wwwroot\js\NewFolder\**" />
     <EmbeddedResource Remove="Controllers\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\js\NewFolder\**" />
     <None Remove="Controllers\NewFolder\**" />
+    <None Remove="wwwroot\js\NewFolder\**" />
   </ItemGroup>
 
   <ItemGroup>

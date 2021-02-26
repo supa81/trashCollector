@@ -3,6 +3,19 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "~/Views/Shared/_Layout.cshtml";
+
+        var dayListt = new SelectList(
+        new List<SelectListItem>
+        {
+            new SelectListItem{Text = "Sunday", Value = "Sunday"},
+            new SelectListItem{Text = "Monday", Value = "Monday"},
+             new SelectListItem{Text = "Tuesday", Value = "Tuesday"},
+              new SelectListItem{Text = "Wednesday", Value = "Wednesday"},
+               new SelectListItem{Text = "Thursday", Value = "Thursday"},
+                new SelectListItem{Text = "Friday", Value = "Friday"},
+                 new SelectListItem{Text = "Saturday", Value = "Saturday"},
+        }, "Value", "Text");
+
 }
 
 <h1>Create</h1>
@@ -42,10 +55,10 @@
             </div>
             <div class="form-group">
                 <label asp-for="WeeklyPickUpDay" class="control-label"></label>
-                <input asp-for="WeeklyPickUpDay" class="form-control" />
+                <select asp-for="WeeklyPickUpDay" class="form-control" asp-items="dayListt"></select>
                 <span asp-validation-for="WeeklyPickUpDay" class="text-danger"></span>
+                
             </div>
-            
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

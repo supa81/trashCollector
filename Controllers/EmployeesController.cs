@@ -26,7 +26,7 @@ namespace TrashCollector.Controllers
         }
 
         // GET: Employees
-        public ActionResult Index()
+        public ActionResult Index(string dayOfWeek)
         {
            
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -36,7 +36,7 @@ namespace TrashCollector.Controllers
                return RedirectToAction("Create");
             }
             var customers = _context.Customer.Where(c => c.ZipCode == employee.ZipCode).ToList();
-            var filiteredCustomers = customers.Where(c => c.WeeklyPickUpDay.DayOfWeek.ToString() == employee.WeeklyPickUpDay.DayOfWeek.ToString()).ToList();
+            var filiteredCustomers = customers.Where(c => c.WeeklyPickUpDay == dayOfWeek).ToList();
             return View(filiteredCustomers); 
           
         }

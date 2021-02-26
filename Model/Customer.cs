@@ -30,7 +30,7 @@ namespace TrashCollector.Models
 
 
         [DisplayName("Weekly Trash PickUp Day")]
-        public DateTime WeeklyPickUpDay { get; set; }
+        public string WeeklyPickUpDay { get; set; }
 
 
         [DisplayName("Start Day Of Service ")]
@@ -44,7 +44,6 @@ namespace TrashCollector.Models
         [DisplayName("Extra pick up?")]
         public bool ExtraOneTimePickUpButton { get; set; }
 
-        
 
 
         [DisplayName("Extra One Time Trash Collection")]
@@ -57,11 +56,13 @@ namespace TrashCollector.Models
 
 
 
-
-
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }
-      
+
+        [ForeignKey("Completed Pick Up")]
+        [DisplayName("Completed Pick Up")]
+        public bool CompletedPickUp { get; set; }
+
     }
 }
